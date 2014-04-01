@@ -1,0 +1,15 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Project
+;;;
+
+
+(data jazz.ide.data.project
+
+
+(form
+  (<Project> name: dawn-setup description-file: {File :context ".repository"}
+    (<*>                      tag-reference: {File :context "jiri" ".project"})
+    (<*>                      tag-reference: {File :context "lib" ".project"}))))
