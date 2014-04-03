@@ -2,7 +2,7 @@
 
 1          RT_MANIFEST dawn-setup.manifest
 app        ICON        dawn-setup.ico
-Background BITMAP      dawn-background.bmp
+Background BITMAP      background.bmp
 
 //
 /// Password
