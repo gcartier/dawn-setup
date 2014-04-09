@@ -4,7 +4,6 @@
   (products (dawn-setup (title "Dawn Setup")
                         (run dawn-setup.run)
                         (build (dawn-setup executable: "Setup" minimum-heap: 500000 resources: "resources"))
-                        (update dawn-setup.run
-                                dawn-setup.settings)
+                        (update dawn-setup.run)
                         (dependencies jiri)))
   (project ".project"))

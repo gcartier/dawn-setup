@@ -9,23 +9,26 @@
 (unit dawn-jiri.settings
 
 
-(define jiri-title
+(jazz:define-variable jiri-title
   "Dawn")
 
-(define jiri-invite
+(jazz:define-variable jiri-invite
   "Dawn of Space")
 
-(define jiri-version
+(jazz:define-variable jiri-version
   "1.0 closed-beta")
 
-(define jiri-company
+(jazz:define-variable jiri-company
   "Republic of Dawn")
 
-(define jiri-size
+(jazz:define-variable jiri-size
   (* 60 1024))
 
-(define jiri-application
+(jazz:define-variable jiri-application
   "Dawn")
+
+(jazz:define-variable jiri-development?
+  #t)
 
 
 ;;;
@@ -33,7 +36,7 @@
 ;;;
 
 
-(define jiri-username
+(jazz:define-variable jiri-username
   "dawnofspacebeta")
 
 
@@ -42,16 +45,16 @@
 ;;;
 
 
-(define jiri-install-remote
+(jazz:define-variable jiri-install-remote
   "https://github.com/gcartier/dawn-install-windows.git")
 
-(define jiri-install-branch
+(jazz:define-variable jiri-install-branch
   "master")
 
-(define jiri-install-dir
+(jazz:define-variable jiri-install-dir
   "install/dawn-install")
 
-(define jiri-current-dir
+(jazz:define-variable jiri-current-dir
   "install/current")
 
 
@@ -60,13 +63,13 @@
 ;;;
 
 
-(define jiri-app-remote
+(jazz:define-variable jiri-app-remote
   "https://github.com/gcartier/dawn-windows.git")
 
-(define jiri-app-branch
+(jazz:define-variable jiri-app-branch
   "master")
 
-(define jiri-app-dir
+(jazz:define-variable jiri-app-dir
   "app/dawn")
 
 
@@ -75,11 +78,11 @@
 ;;;
 
 
-(define jiri-world-remote
+(jazz:define-variable jiri-world-remote
   "https://github.com/gcartier/dawn-world.git")
 
-(define jiri-world-branch
+(jazz:define-variable jiri-world-branch
   "master")
 
-(define jiri-world-dir
+(jazz:define-variable jiri-world-dir
   "worlds/dawn"))
