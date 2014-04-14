@@ -10,7 +10,7 @@
 
 
 (form
-  (<Jazz-Project>  name: Dawn-Setup   default-traits: (Safety.Release) directory: {Directory :context "../../build"} working: {Directory :context "../.."} product: dawn-setup
+  (<Jazz-Project>  name: Dawn-Setup   default-traits: (Safety.Release) directory: {Directory :context "../../binaries"} working: {Directory :context "../.."} executable: "Setup" product: dawn-setup
     (<Trait>       name: Safety
       (<install>)
       (<Trait>     name: Debug
