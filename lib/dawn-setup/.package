@@ -2,8 +2,11 @@
   
   (root "src")
   (products (dawn-setup (title "Dawn Setup")
+                        (unit dawn-setup.product)
                         (run dawn-setup.run)
-                        (build (dawn-setup executable: "Setup" minimum-heap: 500000 resources: "resources"))
-                        (update dawn-setup.run)
+                        (build (dawn-setup executable: "Setup" minimum-heap: 500000 bundle: "dawn-setup" resources: "resources"))
+                        (update dawn-setup.appl
+                                dawn-setup.product
+                                dawn-setup.run)
                         (dependencies jiri)))
   (project ".project"))

@@ -1,0 +1,67 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Settings
+;;;
+
+
+(module dawn-jiri.settings jazz
+
+
+(import (jazz.io)
+        (jiri.settings))
+
+
+;;;
+;;;; Jiri
+;;;
+
+
+(jiri-title "Dawn")
+(jiri-invite "Dawn of Space")
+(jiri-version "1.0 closed-beta")
+(jiri-company "Republic of Dawn")
+(jiri-size (* 60 1024))
+(jiri-background {File Resources "lib" "dawn-setup" "assets" "background.png"})
+(jiri-application "Dawn")
+(jiri-development? #t)
+
+
+;;;
+;;;; Remote
+;;;
+
+
+(jiri-username "dawnofspacebeta")
+
+
+;;;
+;;;; Install
+;;;
+
+
+(jiri-install-remote "https://github.com/gcartier/dawn-install-windows.git")
+(jiri-install-branch "master")
+(jiri-install-dir "install/dawn-install")
+(jiri-current-dir "install/current")
+
+
+;;;
+;;;; App
+;;;
+
+
+(jiri-app-remote "https://github.com/gcartier/dawn-windows.git")
+(jiri-app-branch "master")
+(jiri-app-dir "app/dawn")
+
+
+;;;
+;;;; World
+;;;
+
+
+(jiri-world-remote "https://github.com/gcartier/dawn-world.git")
+(jiri-world-branch "master")
+(jiri-world-dir "worlds/dawn"))

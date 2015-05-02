@@ -11,13 +11,14 @@
 ;;;  Contributor(s):
 
 
-(unit dawn-setup.run
+(module dawn-setup.run jazz
 
 
-(define (run descriptor)
-  (jazz:load-unit 'dawn-jiri.settings)
-  (jazz:load-unit 'jiri.setup))
+(import (dawn-jiri.settings)
+        (dawn-setup.appl)
+        (jiri.setup))
 
 
-(jazz:register-product-run 'dawn-setup
-  run))
+(register-product-run 'dawn-setup
+  (lambda (descriptor)
+    (boot-environment~ (new Dawn-Setup-Application)))))

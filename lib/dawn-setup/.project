@@ -18,4 +18,4 @@
     (<*>                                    tag-reference: {File :context "dawn-setup.project"})
     (<Project-Directory>                    directory: {Directory :context "src"}
       (<Project-Directory>                  directory: {Directory :context "src" "dawn-setup"}
-        (<Project-File>                     source: {File :context "src" "dawn-setup" "run.scm"}))))))
+        (<Jazz-File>       name: run        source: {File :context "src" "dawn-setup" "run.jazz"}))))))

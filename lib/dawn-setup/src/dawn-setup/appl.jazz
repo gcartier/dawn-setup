@@ -1,0 +1,56 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Dawn-Setup Application
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 2012-2014
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+
+
+(module dawn-setup.appl jazz
+
+
+(import (jazz.io)
+        (jazz.jml)
+        (jazz.system)
+        (jazz.ui)
+        (jazz.ui.view)
+        (jiri.appl)
+        (jiri.view))
+
+
+;;;
+;;;; Application
+;;;
+
+
+(class Dawn-Setup-Application extends Jiri-Application
+  
+  
+  (method override (new-toplevel)
+    (new Dawn-Setup-Toplevel))
+  
+  
+  (method override (finish-process)
+    (nextmethod)
+    (set-title~ (current-frame) "Setup"))
+
+  
+  (method override (initialize-settings)
+    (register-resources-alias 'Dawn-Setup 'dawn-setup)))
+
+
+;;;
+;;;; Toplevel
+;;;
+
+
+(class Dawn-Setup-Toplevel extends Jiri-Toplevel
+
+
+  (form
+    (<install> caption-base: "Dawn"))))

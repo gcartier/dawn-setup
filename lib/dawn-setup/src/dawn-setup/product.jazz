@@ -1,0 +1,66 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Dawn-Setup Product
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 2012-2014
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+
+
+(module dawn-setup.product jazz
+
+
+(import (jazz.io)
+        (jazz.product))
+
+
+;;;
+;;;; Build
+;;;
+
+
+(definition (build descriptor (unit: unit #f) (force?: force? #f))
+  (define (resources-dir)
+    (let ((bundle (product-descriptor-build-bundle descriptor)))
+      (if bundle
+          (new-directory~ {Directory Build} (format "{a}.app/Contents/Resources" bundle))
+        {Directory Build})))
+  
+  (let ((dawn-setup-dir {Directory Dawn-Setup})
+        (resources-dir (resources-dir)))
+    (define (copy-assets)
+      (install-directory '("lib" "dawn-setup" "assets")))
+    
+    (define (install-file path)
+      (let ((src (new-file~ dawn-setup-dir path))
+            (dst (new-file~ resources-dir path)))
+        (install-file~ src dst
+          feedback: (lambda (action pathname)
+                      (build-feedback "; {a} {a}..." action (get-name~ pathname))))))
+    
+    (define (install-directory path)
+      (let ((src (new-directory~ dawn-setup-dir path))
+            (dst (new-directory~ resources-dir path)))
+        (install-directory~ src dst
+          feedback: (let ((first? #t))
+                      (lambda (action pathname)
+                        (when first?
+                          (build-feedback "; {a} {a}..." action (get-name~ pathname))
+                          (set! first? #f)))))))
+    
+    (build-product-descriptor descriptor unit: unit force?: force?)
+    (initialize-aliases)
+    (copy-assets)))
+
+
+;;;
+;;;; Register
+;;;
+
+
+(register-product 'dawn-setup
+  build: build))
